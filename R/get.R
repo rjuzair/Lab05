@@ -1,7 +1,6 @@
 library(jsonlite)
 library(httr)
 library(dplyr)
-library(listviewer)
 
 ## The get JSON data script
 
@@ -11,17 +10,35 @@ library(listviewer)
 # Get PM Linköping & Stockholm
 rawLkpg <- httr::GET("https://datavardluft.smhi.se/52North/api/v1/timeseries/5714/getData?timespan=P1Y/2021-09-01") #2016-09-25T17:00:00Z/2021-09-25T17:00:00Z")
 rawSthlm <- httr::GET("https://datavardluft.smhi.se/52North/api/v1/timeseries/59/getData?timespan=P1Y/2021-09-01")
+# rawUme <- httr::GET("https://datavardluft.smhi.se/52North/api/v1/timeseries/279/getData?timespan=P1Y/2021-09-01")
 
-# print(rawjson$id)
-# [1] "168"  "5714"
-print(rawLkpg)
-
+# transform from raw to Character
 rawcharLkpg <- rawToChar(rawLkpg$content)
 rawcharSthlm <- rawToChar(rawSthlm$content)
+# rawcharUme <- rawToChar(rawUme$content)
 
+# transform to from JSON list
 rawjsonLkpg <- fromJSON(rawcharLkpg)
 rawjsonSthlm <- fromJSON(rawcharSthlm)
+# rawjsonUme <- fromJSON(rawcharUme)
 
-data <- cbind.data.frame(rawjsonLkpg, rawjsonSthlm$vavlues.value)
+print(head(rawjsonLkpg))
+# print(head(rawjsonUme))
 
-print(head(data))
+# transform to data frame
+dataLkpg <- as.data.frame(rawjsonLkpg)
+dataSthlm <- as.data.frame(rawjsonSthlm)
+# dataUme <- as.data.frame(rawjsonUme)
+
+# remove NA's
+dataLkpg <- na.omit(dataLkpg)
+dataSthlm <- na.omit(dataSthlm)
+# dataUme <- na.omit(dataUme)
+
+print(head(dataLkpg))
+print(head(dataSthlm))
+
+# data <- cbind.data.frame(rawjsonLkpg, rawjsonSthlm$vavlues.value)
+
+# print(head(data))
+
