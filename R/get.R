@@ -115,11 +115,11 @@ aqiGet <- function() {
   # print(head(dataLkpg))
   # print(head(dataSthlm))
   
-  df <- list(dataLkpg, dataSthlm, dataMlm, dataGbg, dataLule, dataUme)
+  datafiles <- list(dataLkpg, dataSthlm, dataMlm, dataGbg, dataLule, dataUme)
   # temp<-df[1]
   # temp<- as.data.frame(temp)
   # print(head(temp))
-  
-  return(df)
+  length(datafiles)
+  return(datafiles)
 }
 

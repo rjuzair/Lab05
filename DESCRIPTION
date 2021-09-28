@@ -13,7 +13,8 @@ Imports:
     jsonlite,
     httr,
     dplyr,
-    qpdf
+    qpdf, 
+    shiny
 Encoding: UTF-8
 Suggests:
     rmarkdown,
