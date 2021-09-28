@@ -1,0 +1,46 @@
+---
+title: "Lab05"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## 1. Introduction
+
+This R package **Lab05** queries information on Air Quality Index of Major cities Sweden of the past 3 months. The user can select which city they want to query. Air Quality Index is given in PMI 10. PM10 is any particulate matter in the air with a diameter of 10 micrometers or less, including smoke, dust, soot, salts, acids, and metals. Particulate matter can also be formed indirectly when gases emitted from motor vehicles and industries undergo chemical reactions in the atmosphere. Date and time expressed according to ISO 8601. [ref](https://en.wikipedia.org/wiki/ISO_8601)
+
+## 2. aqiGet() function
+
+aqiGet() function is being used to query the data on Air Quality Index. It is accessing from SMHI in collaboration with Naturvårdsverket. [ref](https://www.naturvardsverket.se/amnesomraden/luft/statistik--utslapp-och-halter/luftkvaliteten-i-realtid-och-preliminar-statistik/webbtjanster-luftkvalitetsdata)
+
+This function will return the list of data sets that were extracted earlier. Data for Linkoping City will be in Data set number 1, and Data Set number 2, 3, 4, 5 and 6 contains data for Stockholm, Malmo, Gothenburg, Lulea and Umea respectively. 
+
+### Example
+This example shows query of Linkoping data on Air Quality Index.
+```{r}
+library(Lab05)
+df<-aqiGet()
+df<-df[[1]]
+head(df)
+```
+
+### Example
+This example shows query of Malmo data on Air Quality Index.
+```{r}
+library(Lab05)
+df<-aqiGet()
+df<-df[[3]]
+head(df)
+```
+
+## 3. Shiny App
+
+There is a accompanying shiny application to this API package. The shiny application includes interactivity for selection of city.
+
+### Example
+Shiny web app can be access through the following code:
+```{r eval=FALSE}
+library(Lab05)
+shiny::runApp('App')
+```

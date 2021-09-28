@@ -1,9 +1,17 @@
 Package: Lab05
 Type: Package
-Title: What the package does (short line)
-Version: 1.0
-Date: 2021-09-25
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Title: Air Quality Index for major Swedish cities
+Version: 2.0
+Date: 202-09-25
+Author: Raja Uzair Saeed <rajsa233@student.liu.se>
+Maintainer: Daniel Persson<danpe586@student.liu.se>
+Description: This package generate graph of Air Quality Index for major Swedish cities in shiny web app.
+License: GPL-3
+RoxygenNote: 7.1.2
+Imports:
+    testthat (>= 3.0.0),
+    jsonlite,
+    httr,
+    dplyr
+Encoding: UTF-8
+LazyData: true
