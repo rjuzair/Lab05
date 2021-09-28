@@ -1,6 +1,12 @@
 ---
 title: "Lab05"
+author: "Raja Uzair Saeeed <rajsa233>"
+date: "9/28/2021"
 output: pdf_document
+vignette: >
+  %\VignetteIndexEntry{Lab05}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r setup, include=FALSE}

@@ -12,6 +12,12 @@ Imports:
     testthat (>= 3.0.0),
     jsonlite,
     httr,
-    dplyr
+    dplyr,
+    qpdf
 Encoding: UTF-8
+Suggests:
+    rmarkdown,
+    knitr,
+    roxygen2
 LazyData: true
+VignetteBuilder: knitr
